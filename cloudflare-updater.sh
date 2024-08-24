@@ -6,12 +6,12 @@ CF_EMAIL=${CF_EMAIL}
 CF_ZONE_ID=${CF_ZONE_ID}
 CF_RECORD_ID=${CF_RECORD_ID}
 CF_RECORD_NAME=${CF_RECORD_NAME}
-CF_RECORD_TYPE=${CF_RECORD_TYPE}
-CF_TTL=${CF_TTL}
-CF_PROXIED=${CF_PROXIED}
+CF_RECORD_TYPE=${CF_RECORD_TYPE:-A}
+CF_TTL=${CF_TTL:-120}
+CF_PROXIED=${CF_PROXIED:-true}
 
 # Get the current IP address
-CURRENT_UP=${curl -s http://ipinfo.io/ip}
+CURRENT_IP=$(curl -s http://ipinfo.io/ip)
 
 # Update DNS record on Cloudflare
 
