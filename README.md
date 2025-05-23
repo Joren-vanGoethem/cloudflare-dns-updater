@@ -1,6 +1,6 @@
 # Cloudflare DNS Updater
 
-This Docker container automatically updates your Cloudflare DNS records with your current IP address. It's ideal for dynamic DNS setups where your IP changes frequently, and you want to keep your domain updated on Cloudflare.
+This Docker container automatically updates your Cloudflare DNS records with your current IP address. It's ideal for non-static IP setups like normal residential connections where your IP changes frequently, and you want to keep your domain updated on Cloudflare.
 
 ## Features
 
