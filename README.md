@@ -50,6 +50,7 @@ services:
       - CF_RECORD_TYPE=A
       - CF_TTL=120
       - CF_PROXIED=true
+      - CRON_TIMER="*/15 * * * *"
     restart: unless-stopped
 ```
 
