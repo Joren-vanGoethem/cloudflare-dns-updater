@@ -1,6 +1,8 @@
 # Cloudflare DNS Updater
 
-This Docker container automatically updates your Cloudflare DNS records with your current IP address. It's ideal for non-static IP setups like normal residential connections where your IP changes frequently, and you want to keep your domain updated on Cloudflare.
+This Docker container automatically updates your Cloudflare DNS records with your current IP address. It's ideal for
+non-static IP setups like normal residential connections where your IP changes frequently, and you want to keep your
+domain updated on Cloudflare.
 
 ## Features
 
@@ -34,8 +36,6 @@ Configure the container with the following environment variables:
 Here's an example `docker-compose.yml` file that sets up the Cloudflare DNS updater:
 
 ```yaml
-version: '3.8'
-
 services:
   cloudflare-dns-updater:
     image: your-dockerhub-username/cloudflare-dns-updater:latest
@@ -78,8 +78,6 @@ services:
 To manage multiple domains or DNS records, you can extend your `docker-compose.yml` to include additional services:
 
 ```yaml
-version: '3.8'
-
 services:
   domain1-updater:
     image: your-dockerhub-username/cloudflare-dns-updater:latest
@@ -112,8 +110,10 @@ services:
 
 ### Notes
 
-- **Security**: Ensure your API keys and other sensitive information are stored securely and not exposed in public repositories.
-- **Cron Schedule**: The script runs every 5 minutes by default. You can modify this in the `Dockerfile` or by creating a custom container with your preferred schedule.
+- **Security**: Ensure your API keys and other sensitive information are stored securely and not exposed in public
+  repositories.
+- **Cron Schedule**: The script runs every 5 minutes by default. You can modify this in the `Dockerfile` or by creating
+  a custom container with your preferred schedule.
 
 ### Troubleshooting
 
