@@ -82,7 +82,7 @@ To manage multiple domains or DNS records, you can extend your `docker-compose.y
 ```yaml
 services:
   domain1-updater:
-    image: your-dockerhub-username/cloudflare-dns-updater:latest
+    image: ghcr.io/joren-vangoethem/cloudflare-dns-updater:latest
     container_name: domain1-updater
     environment:
       - CF_API_KEY=your_cloudflare_api_key
@@ -96,7 +96,7 @@ services:
     restart: unless-stopped
 
   domain2-updater:
-    image: your-dockerhub-username/cloudflare-dns-updater:latest
+    image: ghcr.io/joren-vangoethem/cloudflare-dns-updater:latest
     container_name: domain2-updater
     environment:
       - CF_API_KEY=your_cloudflare_api_key
@@ -116,10 +116,6 @@ services:
   repositories.
 - **Cron Schedule**: The script runs every 5 minutes by default. You can modify this in the `Dockerfile` or by creating
   a custom container with your preferred schedule.
-
-### Troubleshooting
-
-- **Permissions**: Ensure that the API key has the necessary permissions to manage DNS records for your domain.
 
 ### Contributing
 
