@@ -116,8 +116,6 @@ services:
 
 ### Notes
 
-- **Security**: Ensure your API keys and other sensitive information are stored securely and not exposed in public
-  repositories.
 - **Cron Schedule**: The script runs every 5 minutes by default. You can modify this in the `Dockerfile` or by creating
   a custom container with your preferred schedule.
 
