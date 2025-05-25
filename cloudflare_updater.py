@@ -8,7 +8,7 @@ import requests
 from dotenv import load_dotenv
 
 # loading variables from .env file
-if not os.environ.get('CF_API_KEY'):
+if not os.getenv('CF_API_KEY'):
     load_dotenv()
 
 
