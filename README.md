@@ -28,7 +28,7 @@ Configure the container with the following environment variables:
 - **`CF_RECORD_ID`**: The ID of the DNS record you want to update.
 - **`CF_RECORD_NAME`**: The DNS record name (e.g., `example.com`).
 - **`CF_RECORD_TYPE`**: (Optional) The type of DNS record (default is `A`).
-- **`CF_TTL`**: (Optional) The TTL of the DNS record (default is `120` seconds).
+- **`CF_TTL`**: (Optional) The TTL of the DNS record (default is `360` seconds).
 - **`CF_PROXIED`**: (Optional) Whether the record is proxied by Cloudflare (default is `true`).
 - **`CRON_TIMER`**: (Optional) overrides the 5 minute cron timer
 
