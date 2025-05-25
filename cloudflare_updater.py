@@ -19,7 +19,7 @@ CF_RECORD_ID: str = os.getenv("CF_RECORD_ID")
 CF_EMAIL: str = os.getenv("CF_EMAIL")
 CF_RECORD_NAME: str = os.getenv("CF_RECORD_NAME")
 CF_RECORD_TYPE: str = os.getenv("CF_RECORD_TYPE", "A")
-CF_TTL: int = os.getenv("CF_TTL", 120)
+CF_TTL: int = os.getenv("CF_TTL", 360)
 CF_PROXIED: bool = os.getenv("CF_PROXIED", False)
 
 
