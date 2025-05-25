@@ -1,0 +1,6 @@
+services:
+  cloudflare-dns-updater:
+    image: ghcr.io/joren-vangoethem/cloudflare-dns-updater:master
+    container_name: cloudflare-dns-updater
+    env_file: .env
+    restart: unless-stopped

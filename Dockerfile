@@ -1,19 +1,25 @@
-FROM alpine:latest
+# Use an official Python runtime as a parent image
+FROM python:3.12-slim
 
-# Install packages
-RUN apk --no-cache add curl bash
+# Install cron
+RUN apt-get update && apt-get install -y cron && rm -rf /var/lib/apt/lists/*
 
-# Set default cron timer to 5 minutes
-ENV CRON_TIMER="*/5 * * * *"
+# Set the working directory
+WORKDIR /app
 
-# Copy the update script to the container
-COPY cloudflare-updater.sh /usr/local/bin/update-dns.sh
+# Copy the Python script and requirements
+COPY requirements.txt .
+COPY cloudflare_updater.py .
 
-# Make the script executable
-RUN chmod +x /usr/local/bin/update-dns.sh
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Set the script to run based on the CRON_TIMER environment variable
-RUN echo "$CRON_TIMER /usr/local/bin/update-dns.sh" > /etc/crontabs/root
+# Copy and set up the entrypoint script
+COPY cronjob.sh .
+RUN chmod +x cronjob.sh
 
-# Start cron job in the foreground
-CMD ["crond", "-f"]
+# Create the log file to be able to run tail
+RUN touch /var/log/cron.log
+
+# Set the entrypoint
+ENTRYPOINT ["./cronjob.sh"]
