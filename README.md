@@ -28,9 +28,13 @@ Configure the container with the following environment variables:
 - **`CF_RECORD_ID`**: The ID of the DNS record you want to update.
 - **`CF_RECORD_NAME`**: The DNS record name (e.g., `example.com`).
 - **`CF_RECORD_TYPE`**: (Optional) The type of DNS record (default is `A`).
-- **`CF_TTL`**: (Optional) The TTL of the DNS record (default is `120` seconds).
+- **`CF_TTL`**: (Optional) The TTL of the DNS record (default is `360` seconds).
 - **`CF_PROXIED`**: (Optional) Whether the record is proxied by Cloudflare (default is `true`).
 - **`CRON_TIMER`**: (Optional) overrides the 5 minute cron timer
+
+To find your Zone ID through the web UI head to the Cloudflare Dashboard, select your domain and look under the API selection of the sidebar, you’ll see your account ID and zone ID.
+
+To find your record ID, edit that record manually in the Cloudflare Dashboard, then Save. It will show up in the Audit Log at the top of dash.cloudflare.com with the Record ID.
 
 ### Example Docker Compose File
 
