@@ -5,8 +5,19 @@ CRON_TIMER=${CRON_TIMER:-"*/5 * * * *"}
 
 PYTHON_PATH=$(which python)
 
-# Create the cron job with the environment variable
-echo "$CRON_TIMER $PYTHON_PATH /app/cloudflare_updater.py >> /var/log/cron.log 2>&1" > /etc/cron.d/cloudflare-cron
+# Create the cron job with all the required environment variables
+cat > /etc/cron.d/cloudflare-cron << EOF
+CF_API_KEY=$CF_API_KEY
+CF_EMAIL=$CF_EMAIL
+CF_ZONE_ID=$CF_ZONE_ID
+CF_RECORD_ID=$CF_RECORD_ID
+CF_RECORD_NAME=$CF_RECORD_NAME
+CF_RECORD_TYPE=$CF_RECORD_TYPE
+CF_TTL=$CF_TTL
+CF_PROXIED=$CF_PROXIED
+
+$CRON_TIMER root $PYTHON_PATH /app/cloudflare_updater.py >> /var/log/cron.log 2>&1
+EOF
 
 # Give execution rights on the cron job and apply it
 chmod 0644 /etc/cron.d/cloudflare-cron
