@@ -21,16 +21,6 @@ CF_RECORD_TYPE: str = os.getenv("CF_RECORD_TYPE", "A")
 CF_TTL: int = int(os.getenv("CF_TTL", 360))
 CF_PROXIED: bool = os.getenv("CF_PROXIED", "false").lower() in ('true', '1', 'yes')
 
-
-print(CF_API_KEY)
-print(CF_ZONE_ID)
-print(CF_RECORD_ID)
-print(CF_EMAIL)
-print(CF_RECORD_NAME)
-print(CF_RECORD_TYPE)
-print(CF_TTL)
-print(CF_PROXIED)
-
 @dataclass
 class CloudflareDNSRecord:
     id: str
