@@ -43,7 +43,7 @@ Here's an example `docker-compose.yml` file that sets up the Cloudflare DNS upda
 ```yaml
 services:
   cloudflare-dns-updater:
-    image: your-dockerhub-username/cloudflare-dns-updater:latest
+    image: ghcr.io/joren-vangoethem/cloudflare-dns-updater:latest
     container_name: cloudflare-dns-updater
     environment:
       - CF_API_KEY=your_cloudflare_api_key
