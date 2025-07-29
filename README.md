@@ -116,8 +116,7 @@ services:
 
 ### Notes
 
-- **Cron Schedule**: The script runs every 5 minutes by default. You can modify this in the `Dockerfile` or by creating
-  a custom container with your preferred schedule.
+- **Cron Schedule**: The script runs every 5 minutes by default. You can modify this in the `Dockerfile` by setting the `CRON_TIMER` environment variable with your preferred schedule.
 
 ### Contributing
 
